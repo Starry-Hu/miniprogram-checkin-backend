@@ -1,0 +1,11 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /miniprogram/checkin
+
+# pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
