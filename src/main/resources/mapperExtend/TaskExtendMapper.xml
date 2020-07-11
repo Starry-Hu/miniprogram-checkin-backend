@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.practice.miniprogram.checkin.daoExtend.TaskExtendMapper">
+
+    <!-- 获取某用户的全部打卡任务 -->
+    <select id="getAllTasksByUser" resultType="com.practice.miniprogram.checkin.pojo.TaskExtend">
+     SELECT
+        A.task_id AS taskId,
+        A.user_id AS userId,
+        A.task_title AS taskTitle,
+        A.task_content AS taskContent,
+        A.start_time AS startTime,
+        A.end_time AS endTime,
+    FROM
+        task A
+    WHERE
+        A.is_del = 0 AND
+        A.user_id = #{userId}
+    ORDER BY
+        A.start_time DESC
+    </select>
+
+</mapper>

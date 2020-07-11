@@ -2,9 +2,7 @@ package com.practice.miniprogram.checkin.dao;
 
 import com.practice.miniprogram.checkin.bean.User;
 import com.practice.miniprogram.checkin.bean.UserExample;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {

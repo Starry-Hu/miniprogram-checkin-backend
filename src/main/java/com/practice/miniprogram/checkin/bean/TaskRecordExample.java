@@ -14,20 +14,20 @@ public class TaskRecordExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -244,183 +244,73 @@ public class TaskRecordExample {
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearIsNull() {
-            addCriterion("check_year is null");
+        public Criteria andCheckDateIsNull() {
+            addCriterion("check_date is null");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearIsNotNull() {
-            addCriterion("check_year is not null");
+        public Criteria andCheckDateIsNotNull() {
+            addCriterion("check_date is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearEqualTo(Integer value) {
-            addCriterion("check_year =", value, "checkYear");
+        public Criteria andCheckDateEqualTo(String value) {
+            addCriterion("check_date =", value, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearNotEqualTo(Integer value) {
-            addCriterion("check_year <>", value, "checkYear");
+        public Criteria andCheckDateNotEqualTo(String value) {
+            addCriterion("check_date <>", value, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearGreaterThan(Integer value) {
-            addCriterion("check_year >", value, "checkYear");
+        public Criteria andCheckDateGreaterThan(String value) {
+            addCriterion("check_date >", value, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearGreaterThanOrEqualTo(Integer value) {
-            addCriterion("check_year >=", value, "checkYear");
+        public Criteria andCheckDateGreaterThanOrEqualTo(String value) {
+            addCriterion("check_date >=", value, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearLessThan(Integer value) {
-            addCriterion("check_year <", value, "checkYear");
+        public Criteria andCheckDateLessThan(String value) {
+            addCriterion("check_date <", value, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearLessThanOrEqualTo(Integer value) {
-            addCriterion("check_year <=", value, "checkYear");
+        public Criteria andCheckDateLessThanOrEqualTo(String value) {
+            addCriterion("check_date <=", value, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearIn(List<Integer> values) {
-            addCriterion("check_year in", values, "checkYear");
+        public Criteria andCheckDateLike(String value) {
+            addCriterion("check_date like", value, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearNotIn(List<Integer> values) {
-            addCriterion("check_year not in", values, "checkYear");
+        public Criteria andCheckDateNotLike(String value) {
+            addCriterion("check_date not like", value, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearBetween(Integer value1, Integer value2) {
-            addCriterion("check_year between", value1, value2, "checkYear");
+        public Criteria andCheckDateIn(List<String> values) {
+            addCriterion("check_date in", values, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckYearNotBetween(Integer value1, Integer value2) {
-            addCriterion("check_year not between", value1, value2, "checkYear");
+        public Criteria andCheckDateNotIn(List<String> values) {
+            addCriterion("check_date not in", values, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckMonthIsNull() {
-            addCriterion("check_month is null");
+        public Criteria andCheckDateBetween(String value1, String value2) {
+            addCriterion("check_date between", value1, value2, "checkDate");
             return (Criteria) this;
         }
 
-        public Criteria andCheckMonthIsNotNull() {
-            addCriterion("check_month is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckMonthEqualTo(Integer value) {
-            addCriterion("check_month =", value, "checkMonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckMonthNotEqualTo(Integer value) {
-            addCriterion("check_month <>", value, "checkMonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckMonthGreaterThan(Integer value) {
-            addCriterion("check_month >", value, "checkMonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckMonthGreaterThanOrEqualTo(Integer value) {
-            addCriterion("check_month >=", value, "checkMonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckMonthLessThan(Integer value) {
-            addCriterion("check_month <", value, "checkMonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckMonthLessThanOrEqualTo(Integer value) {
-            addCriterion("check_month <=", value, "checkMonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckMonthIn(List<Integer> values) {
-            addCriterion("check_month in", values, "checkMonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckMonthNotIn(List<Integer> values) {
-            addCriterion("check_month not in", values, "checkMonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckMonthBetween(Integer value1, Integer value2) {
-            addCriterion("check_month between", value1, value2, "checkMonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckMonthNotBetween(Integer value1, Integer value2) {
-            addCriterion("check_month not between", value1, value2, "checkMonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayIsNull() {
-            addCriterion("check_day is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayIsNotNull() {
-            addCriterion("check_day is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayEqualTo(Integer value) {
-            addCriterion("check_day =", value, "checkDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayNotEqualTo(Integer value) {
-            addCriterion("check_day <>", value, "checkDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayGreaterThan(Integer value) {
-            addCriterion("check_day >", value, "checkDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayGreaterThanOrEqualTo(Integer value) {
-            addCriterion("check_day >=", value, "checkDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayLessThan(Integer value) {
-            addCriterion("check_day <", value, "checkDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayLessThanOrEqualTo(Integer value) {
-            addCriterion("check_day <=", value, "checkDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayIn(List<Integer> values) {
-            addCriterion("check_day in", values, "checkDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayNotIn(List<Integer> values) {
-            addCriterion("check_day not in", values, "checkDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayBetween(Integer value1, Integer value2) {
-            addCriterion("check_day between", value1, value2, "checkDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andCheckDayNotBetween(Integer value1, Integer value2) {
-            addCriterion("check_day not between", value1, value2, "checkDay");
+        public Criteria andCheckDateNotBetween(String value1, String value2) {
+            addCriterion("check_date not between", value1, value2, "checkDate");
             return (Criteria) this;
         }
 
@@ -589,6 +479,38 @@ public class TaskRecordExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -623,38 +545,6 @@ public class TaskRecordExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }

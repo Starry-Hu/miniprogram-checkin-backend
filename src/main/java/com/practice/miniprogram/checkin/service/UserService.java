@@ -1,6 +1,7 @@
 package com.practice.miniprogram.checkin.service;
 
 import com.practice.miniprogram.checkin.bean.User;
+import com.practice.miniprogram.checkin.pojo.UserExtend;
 
 public interface UserService {
     // 注册用户
@@ -10,7 +11,7 @@ public interface UserService {
     User login(String userId, String password) throws Exception;
 
     // 查找用户，获取基本信息
-    User searchById(String userId) throws Exception;
+    UserExtend searchById(String userId) throws Exception;
 
     // 修改个人信息
     int update(String userId, String userName, String password, String birthday, int gender) throws Exception;

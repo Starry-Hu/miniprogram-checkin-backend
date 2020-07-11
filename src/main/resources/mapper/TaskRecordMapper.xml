@@ -1,246 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.practice.miniprogram.checkin.dao.TaskRecordMapper">
-    <resultMap id="BaseResultMap" type="com.practice.miniprogram.checkin.bean.TaskRecord">
-        <id column="task_record_id" jdbcType="VARCHAR" property="taskRecordId"/>
-        <result column="task_id" jdbcType="VARCHAR" property="taskId"/>
-        <result column="check_year" jdbcType="INTEGER" property="checkYear"/>
-        <result column="check_month" jdbcType="INTEGER" property="checkMonth"/>
-        <result column="check_day" jdbcType="INTEGER" property="checkDay"/>
-        <result column="check_location" jdbcType="VARCHAR" property="checkLocation"/>
-        <result column="check_weather" jdbcType="VARCHAR" property="checkWeather"/>
-    </resultMap>
-    <sql id="Example_Where_Clause">
-        <where>
-            <foreach collection="oredCriteria" item="criteria" separator="or">
-                <if test="criteria.valid">
-                    <trim prefix="(" prefixOverrides="and" suffix=")">
-                        <foreach collection="criteria.criteria" item="criterion">
-                            <choose>
-                                <when test="criterion.noValue">
-                                    and ${criterion.condition}
-                                </when>
-                                <when test="criterion.singleValue">
-                                    and ${criterion.condition} #{criterion.value}
-                                </when>
-                                <when test="criterion.betweenValue">
-                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                                </when>
-                                <when test="criterion.listValue">
-                                    and ${criterion.condition}
-                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
-                                             separator=",">
-                                        #{listItem}
-                                    </foreach>
-                                </when>
-                            </choose>
-                        </foreach>
-                    </trim>
-                </if>
+  <resultMap id="BaseResultMap" type="com.practice.miniprogram.checkin.bean.TaskRecord">
+    <id column="task_record_id" jdbcType="VARCHAR" property="taskRecordId" />
+    <result column="task_id" jdbcType="VARCHAR" property="taskId" />
+    <result column="check_date" jdbcType="VARCHAR" property="checkDate" />
+    <result column="check_location" jdbcType="VARCHAR" property="checkLocation" />
+    <result column="check_weather" jdbcType="VARCHAR" property="checkWeather" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
             </foreach>
-        </where>
-    </sql>
-    <sql id="Update_By_Example_Where_Clause">
-        <where>
-            <foreach collection="example.oredCriteria" item="criteria" separator="or">
-                <if test="criteria.valid">
-                    <trim prefix="(" prefixOverrides="and" suffix=")">
-                        <foreach collection="criteria.criteria" item="criterion">
-                            <choose>
-                                <when test="criterion.noValue">
-                                    and ${criterion.condition}
-                                </when>
-                                <when test="criterion.singleValue">
-                                    and ${criterion.condition} #{criterion.value}
-                                </when>
-                                <when test="criterion.betweenValue">
-                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                                </when>
-                                <when test="criterion.listValue">
-                                    and ${criterion.condition}
-                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
-                                             separator=",">
-                                        #{listItem}
-                                    </foreach>
-                                </when>
-                            </choose>
-                        </foreach>
-                    </trim>
-                </if>
-            </foreach>
-        </where>
-    </sql>
-    <sql id="Base_Column_List">
-    task_record_id, task_id, check_year, check_month, check_day, check_location, check_weather
+          </trim>
+        </if>
+      </foreach>
+    </where>
   </sql>
-    <select id="selectByExample" parameterType="com.practice.miniprogram.checkin.bean.TaskRecordExample"
-            resultMap="BaseResultMap">
-        select
-        <if test="distinct">
-            distinct
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
         </if>
-        'true' as QUERYID,
-        <include refid="Base_Column_List"/>
-        from task_record
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-        <if test="orderByClause != null">
-            order by ${orderByClause}
-        </if>
-    </select>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from task_record
-        where task_record_id = #{taskRecordId,jdbcType=VARCHAR}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    task_record_id, task_id, check_date, check_location, check_weather
+  </sql>
+  <select id="selectByExample" parameterType="com.practice.miniprogram.checkin.bean.TaskRecordExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from task_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from task_record
+    where task_record_id = #{taskRecordId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from task_record
     where task_record_id = #{taskRecordId,jdbcType=VARCHAR}
   </delete>
-    <delete id="deleteByExample" parameterType="com.practice.miniprogram.checkin.bean.TaskRecordExample">
-        delete from task_record
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-    </delete>
-    <insert id="insert" parameterType="com.practice.miniprogram.checkin.bean.TaskRecord">
-    insert into task_record (task_record_id, task_id, check_year, 
-      check_month, check_day, check_location, 
-      check_weather)
-    values (#{taskRecordId,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, #{checkYear,jdbcType=INTEGER}, 
-      #{checkMonth,jdbcType=INTEGER}, #{checkDay,jdbcType=INTEGER}, #{checkLocation,jdbcType=VARCHAR}, 
-      #{checkWeather,jdbcType=VARCHAR})
+  <delete id="deleteByExample" parameterType="com.practice.miniprogram.checkin.bean.TaskRecordExample">
+    delete from task_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.practice.miniprogram.checkin.bean.TaskRecord">
+    insert into task_record (task_record_id, task_id, check_date, 
+      check_location, check_weather)
+    values (#{taskRecordId,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, #{checkDate,jdbcType=VARCHAR}, 
+      #{checkLocation,jdbcType=VARCHAR}, #{checkWeather,jdbcType=VARCHAR})
   </insert>
-    <insert id="insertSelective" parameterType="com.practice.miniprogram.checkin.bean.TaskRecord">
-        insert into task_record
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="taskRecordId != null">
-                task_record_id,
-            </if>
-            <if test="taskId != null">
-                task_id,
-            </if>
-            <if test="checkYear != null">
-                check_year,
-            </if>
-            <if test="checkMonth != null">
-                check_month,
-            </if>
-            <if test="checkDay != null">
-                check_day,
-            </if>
-            <if test="checkLocation != null">
-                check_location,
-            </if>
-            <if test="checkWeather != null">
-                check_weather,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="taskRecordId != null">
-                #{taskRecordId,jdbcType=VARCHAR},
-            </if>
-            <if test="taskId != null">
-                #{taskId,jdbcType=VARCHAR},
-            </if>
-            <if test="checkYear != null">
-                #{checkYear,jdbcType=INTEGER},
-            </if>
-            <if test="checkMonth != null">
-                #{checkMonth,jdbcType=INTEGER},
-            </if>
-            <if test="checkDay != null">
-                #{checkDay,jdbcType=INTEGER},
-            </if>
-            <if test="checkLocation != null">
-                #{checkLocation,jdbcType=VARCHAR},
-            </if>
-            <if test="checkWeather != null">
-                #{checkWeather,jdbcType=VARCHAR},
-            </if>
-        </trim>
-    </insert>
-    <select id="countByExample" parameterType="com.practice.miniprogram.checkin.bean.TaskRecordExample"
-            resultType="java.lang.Long">
-        select count(*) from task_record
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-    </select>
-    <update id="updateByExampleSelective" parameterType="map">
-        update task_record
-        <set>
-            <if test="record.taskRecordId != null">
-                task_record_id = #{record.taskRecordId,jdbcType=VARCHAR},
-            </if>
-            <if test="record.taskId != null">
-                task_id = #{record.taskId,jdbcType=VARCHAR},
-            </if>
-            <if test="record.checkYear != null">
-                check_year = #{record.checkYear,jdbcType=INTEGER},
-            </if>
-            <if test="record.checkMonth != null">
-                check_month = #{record.checkMonth,jdbcType=INTEGER},
-            </if>
-            <if test="record.checkDay != null">
-                check_day = #{record.checkDay,jdbcType=INTEGER},
-            </if>
-            <if test="record.checkLocation != null">
-                check_location = #{record.checkLocation,jdbcType=VARCHAR},
-            </if>
-            <if test="record.checkWeather != null">
-                check_weather = #{record.checkWeather,jdbcType=VARCHAR},
-            </if>
-        </set>
-        <if test="_parameter != null">
-            <include refid="Update_By_Example_Where_Clause"/>
-        </if>
-    </update>
-    <update id="updateByExample" parameterType="map">
-        update task_record
-        set task_record_id = #{record.taskRecordId,jdbcType=VARCHAR},
+  <insert id="insertSelective" parameterType="com.practice.miniprogram.checkin.bean.TaskRecord">
+    insert into task_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskRecordId != null">
+        task_record_id,
+      </if>
+      <if test="taskId != null">
+        task_id,
+      </if>
+      <if test="checkDate != null">
+        check_date,
+      </if>
+      <if test="checkLocation != null">
+        check_location,
+      </if>
+      <if test="checkWeather != null">
+        check_weather,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskRecordId != null">
+        #{taskRecordId,jdbcType=VARCHAR},
+      </if>
+      <if test="taskId != null">
+        #{taskId,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null">
+        #{checkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkLocation != null">
+        #{checkLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="checkWeather != null">
+        #{checkWeather,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.practice.miniprogram.checkin.bean.TaskRecordExample" resultType="java.lang.Long">
+    select count(*) from task_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update task_record
+    <set>
+      <if test="record.taskRecordId != null">
+        task_record_id = #{record.taskRecordId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taskId != null">
         task_id = #{record.taskId,jdbcType=VARCHAR},
-        check_year = #{record.checkYear,jdbcType=INTEGER},
-        check_month = #{record.checkMonth,jdbcType=INTEGER},
-        check_day = #{record.checkDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.checkDate != null">
+        check_date = #{record.checkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkLocation != null">
         check_location = #{record.checkLocation,jdbcType=VARCHAR},
-        check_weather = #{record.checkWeather,jdbcType=VARCHAR}
-        <if test="_parameter != null">
-            <include refid="Update_By_Example_Where_Clause"/>
-        </if>
-    </update>
-    <update id="updateByPrimaryKeySelective" parameterType="com.practice.miniprogram.checkin.bean.TaskRecord">
-        update task_record
-        <set>
-            <if test="taskId != null">
-                task_id = #{taskId,jdbcType=VARCHAR},
-            </if>
-            <if test="checkYear != null">
-                check_year = #{checkYear,jdbcType=INTEGER},
-            </if>
-            <if test="checkMonth != null">
-                check_month = #{checkMonth,jdbcType=INTEGER},
-            </if>
-            <if test="checkDay != null">
-                check_day = #{checkDay,jdbcType=INTEGER},
-            </if>
-            <if test="checkLocation != null">
-                check_location = #{checkLocation,jdbcType=VARCHAR},
-            </if>
-            <if test="checkWeather != null">
-                check_weather = #{checkWeather,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where task_record_id = #{taskRecordId,jdbcType=VARCHAR}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.practice.miniprogram.checkin.bean.TaskRecord">
+      </if>
+      <if test="record.checkWeather != null">
+        check_weather = #{record.checkWeather,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update task_record
+    set task_record_id = #{record.taskRecordId,jdbcType=VARCHAR},
+      task_id = #{record.taskId,jdbcType=VARCHAR},
+      check_date = #{record.checkDate,jdbcType=VARCHAR},
+      check_location = #{record.checkLocation,jdbcType=VARCHAR},
+      check_weather = #{record.checkWeather,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.practice.miniprogram.checkin.bean.TaskRecord">
+    update task_record
+    <set>
+      <if test="taskId != null">
+        task_id = #{taskId,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null">
+        check_date = #{checkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkLocation != null">
+        check_location = #{checkLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="checkWeather != null">
+        check_weather = #{checkWeather,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where task_record_id = #{taskRecordId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.practice.miniprogram.checkin.bean.TaskRecord">
     update task_record
     set task_id = #{taskId,jdbcType=VARCHAR},
-      check_year = #{checkYear,jdbcType=INTEGER},
-      check_month = #{checkMonth,jdbcType=INTEGER},
-      check_day = #{checkDay,jdbcType=INTEGER},
+      check_date = #{checkDate,jdbcType=VARCHAR},
       check_location = #{checkLocation,jdbcType=VARCHAR},
       check_weather = #{checkWeather,jdbcType=VARCHAR}
     where task_record_id = #{taskRecordId,jdbcType=VARCHAR}

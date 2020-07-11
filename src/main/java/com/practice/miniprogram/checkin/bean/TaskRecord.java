@@ -5,11 +5,7 @@ public class TaskRecord {
 
     private String taskId;
 
-    private Integer checkYear;
-
-    private Integer checkMonth;
-
-    private Integer checkDay;
+    private String checkDate;
 
     private String checkLocation;
 
@@ -31,28 +27,12 @@ public class TaskRecord {
         this.taskId = taskId;
     }
 
-    public Integer getCheckYear() {
-        return checkYear;
+    public String getCheckDate() {
+        return checkDate;
     }
 
-    public void setCheckYear(Integer checkYear) {
-        this.checkYear = checkYear;
-    }
-
-    public Integer getCheckMonth() {
-        return checkMonth;
-    }
-
-    public void setCheckMonth(Integer checkMonth) {
-        this.checkMonth = checkMonth;
-    }
-
-    public Integer getCheckDay() {
-        return checkDay;
-    }
-
-    public void setCheckDay(Integer checkDay) {
-        this.checkDay = checkDay;
+    public void setCheckDate(String checkDate) {
+        this.checkDate = checkDate;
     }
 
     public String getCheckLocation() {

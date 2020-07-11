@@ -2,9 +2,7 @@ package com.practice.miniprogram.checkin.dao;
 
 import com.practice.miniprogram.checkin.bean.Task;
 import com.practice.miniprogram.checkin.bean.TaskExample;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface TaskMapper {

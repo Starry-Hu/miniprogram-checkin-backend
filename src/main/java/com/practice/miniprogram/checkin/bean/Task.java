@@ -13,7 +13,7 @@ public class Task {
 
     private String endTime;
 
-    private Boolean isDel;
+    private Integer isDel;
 
     public String getTaskId() {
         return taskId;
@@ -63,11 +63,11 @@ public class Task {
         this.endTime = endTime;
     }
 
-    public Boolean getIsDel() {
+    public Integer getIsDel() {
         return isDel;
     }
 
-    public void setIsDel(Boolean isDel) {
+    public void setIsDel(Integer isDel) {
         this.isDel = isDel;
     }
 }
